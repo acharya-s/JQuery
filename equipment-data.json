@@ -1,0 +1,54 @@
+{
+    "name" : "Golf Equipment",
+    "version" : "1.0",
+    "products" : [
+        {
+            "prod_name" : "Driver",
+            "prod_id" : "G100",
+            "retail_price" : 499.99,
+            "description" : "This is my best Driver ever.",
+            "in_stock" : true,
+            "photo_src" : "images/equipments/CallawayRogueDriver.jpg"
+        },
+        {
+            "prod_name" : "Hybrid",
+            "prod_id" : "G200",
+            "retail_price" : 299.99,
+            "description" : "This is the top rated Hybrid club",
+            "in_stock" : true,
+            "photo_src" : "images/equipments/CallawayRogueHybrid.jpg"
+        },
+        {
+            "prod_name" : "Wood",
+            "prod_id" : "G300",
+            "retail_price" : 329.99,
+            "description" : "Most selling wood in the market.",
+            "in_stock" : true,
+            "photo_src" : "images/equipments/CallawayRogueWood.jpg"
+        },
+        {
+            "prod_name" : "Iron",
+            "prod_id" : "G400",
+            "retail_price" : 199.99,
+            "description" : "Mizuno Iron 919 are the latest in the market.",
+            "in_stock" : true,
+            "photo_src" : "images/equipments/CallawayRogueIcon919.jpg"
+        },
+        {
+            "prod_name" : "Putter",
+            "prod_id" : "G500",
+            "retail_price" : 399.99,
+            "description" : "Top Putter in the whole market and worth it.",
+            "in_stock" : true,
+            "photo_src" : "images/equipments/scotty-cameron-by-titleist-Putter.jpg"
+        },
+        {
+            "prod_name" : "Ball",
+            "prod_id" : "G600",
+            "retail_price" : 39.99,
+            "description" : "Titlist Pro V golf balls are on sale.",
+            "in_stock" : true,
+            "photo_src" : "images/equipments/GolfBall.jpg"
+        }
+    ]
+}

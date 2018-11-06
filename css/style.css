@@ -1,0 +1,157 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box
+}
+
+.section {
+	height: 600px;
+    min-height: 40vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    line-height: 160%
+}
+
+.section .headline {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 4rem;
+    margin-top: 3rem;
+    line-height: 110%
+}
+
+.section a,
+.section em {
+    font-size: 140%;
+    vertical-align: -6%
+}
+
+@media screen and (min-width:600px) {
+    .section {
+        font-size: 2rem
+    }
+}
+
+#equipments {
+    /*.equipment-list*/
+}
+
+#equipments .imageheader {
+    background: -webkit-linear-gradient(top, transparent, transparent), url(../images/backgrounds/golf.jpg);
+    background: linear-gradient(180deg, transparent, transparent), url(../images/backgrounds/golf.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    max-height: auto
+}
+
+#equipments .equipment-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap/*.equipment-item*/
+}
+
+#equipments .equipment-list .equipment-item {
+    position: relative;
+    color: #fff;
+    overflow: hidden;
+    width: 50%;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    opacity: .8/*.equipment-name*/
+}
+
+#equipments .equipment-list .equipment-item .equipment-name {
+    background: #d14348;
+    color: #f3d350;
+    font-weight: 700;
+    font-size: 80%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: none
+}
+
+#equipments .equipment-list .equipment-item:focus .equipment-name,
+#equipments .equipment-list .equipment-item:hover .equipment-name {
+    display: block
+}
+
+#equipments .equipment-list .equipment-item:focus,
+#equipments .equipment-list .equipment-item:hover {
+    opacity: 1;
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+    z-index: 1
+}
+
+#equipments .equipment-list .equipment-item:focus .equipment-name,
+#equipments .equipment-list .equipment-item:hover .equipment-name {
+    display: block;
+    -webkit-animation: a 1s;
+    animation: a 1s
+}
+
+@-webkit-keyframes a {
+    0% {
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+        visibility: visible
+    }
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@keyframes a {
+    0% {
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+        visibility: visible
+    }
+    to {
+        -webkit-transform: translateZ(0);l
+        transform: translateZ(0)
+    }
+}
+
+@media screen and (min-width:600px) {
+    #equipments .equipment-list .equipment-item {
+        width: 33.33333%
+    }
+}
+
+@media screen and (min-width:900px) {
+    #equipments .equipment-list .equipment-item {
+        width: 25%
+    }
+}
+
+@media screen and (min-width:1200px) {
+    #equipments .equipment-list .equipment-item {
+        width: 16.66667%
+    }
+}
+
+
+/* equipments*/
