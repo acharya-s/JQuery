@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Golf Sport</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="jquery-3.0.0.js"></script>
+  <script>
+	$(function() {
+		var paramLoc = window.location.href.indexOf("?");
+		var paramStr = window.location.href.slice(paramLoc+1);
+		var equipName = "";
+		var equipID = "";
+		
+		var i = paramStr.indexOf("equipName=")+10;
+		for (var j = i; j < paramStr.length; j++) {
+			if (paramStr.charAt(j) == "&")
+				break;
+			equipName += paramStr.charAt(j);
+		}
+		var i = paramStr.indexOf("equipID=")+8;
+		for (var j = i; j < paramStr.length; j++) {
+			if (paramStr.charAt(j) == "&")
+				break;
+			equipID += paramStr.charAt(j);
+		}
+		equipName = decodeURIComponent(equipName);
+		equipID = decodeURIComponent(equipID);
+		
+		// set the equipment name in the proper placeholder
+		$("#equipmentName").text(equipName);
+		
+		// retrieve the product information via AJAX
+		$.getJSON("equipment-data.json")
+			.done(function(equipData) {
+				// use the equipID to get this equipment information
+				equipData.equipments.forEach(function(elem) {
+					if (elem.equip_id == equipID) {
+						$("equipmentStock").text(elem.in_stock);
+						$("equipmentPrice").text(elem.retail_price);
+						$("equipmentDesc").text(elem.description);
+					}
+				});
+			});
+	});
+  </script>
+</head>
+<body>
+
+<header id="home" class="equip_header">
+  <div class="container tagline">
+    <h1 class="headline">Equipment Information</h1>
+  </div><!-- container tagline -->
+</header><!-- #home -->
+
+    <section class="section">
+        <div class="container">
+            <div class="text-content">
+                <h2 class="headline">Equipment Information</h2>
+                <div>
+                    <p>Equipment Name: <span id="equipmentName"></span></p>
+                    <p>In Stock: <span id="equipmentStock"></span></p>
+                    <p>Price: <span id="equipmentPrice"></span></p>
+                    <p>Description: <span id="equipmentDesc"></span></p>
+                </div>
+            </div>
+        </div>
+        <!-- container text -->
+    </section>
+    <!-- #quipmentData -->
+
+
+</body>
+</html>

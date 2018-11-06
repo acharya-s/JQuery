@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <title>Golf Sport</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="jquery-3.0.0.js"></script>
+  <script>
+	$(function () {
+		$("#equipments h2.equipment-name[data-type='golf-MainClubs']").css("background-color", "#2982d0");
+		$("#equipments h2.equipment-name[data-type='golf-Iron']").css("background-color", "#12500f");
+		$("#equipments h2.equipment-name[data-type='golf-PutterAndBall']").css("background-color", "#4e0f50");
+		
+		
+		$(".equipment-item").each(function () {
+                var equipName = encodeURIComponent($(this).children("h2").text());
+                var equipID = encodeURIComponent($(this).data("equip_id"));
+
+                var link = $("<a href='equipment.html?equipName=" + equipName + "&equipID=" + equipID + "'/>");
+                $(this).children("img").wrap(link);
+            })
+	})
+  </script>
 </head>
 <body>
 
@@ -15,35 +32,31 @@
     <h2 class="headline">Golf Equipments</h2>
   </div><!-- container -->
   <ul class="equipment-list">
-    <li class="equipment-item" data-prod_id="G100">
+    <li class="equipment-item" data-equip_id="G100">
         <img class="equipment-image" src="images/equipments/CallawayRogueDriver.jpg" alt="Driver Photo">
-        <h2 class="equipment-name" data-type="golf">Driver</h2>
+        <h2 class="equipment-name" data-type="golf-MainClubs">Driver</h2>
     </li>
-    <li class="equipment-item" data-prod_id="G200">
+    <li class="equipment-item" data-equip_id="G200">
         <img class="equipment-image" src="images/equipments/CallawayRogueHybrid.jpg" alt="Hybrid Photo">
-        <h2 class="equipment-name" data-type="golf">Hybrid</h2>
+        <h2 class="equipment-name" data-type="golf-MainClubs">Hybrid</h2>
     </li>
-    <li class="equipment-item" data-prod_id="G300">
+    <li class="equipment-item" data-equip_id="G300">
         <img class="equipment-image" src="images/equipments/CallawayRogueWood.jpg" alt="Wood Photo">
-        <h2 class="equipment-name" data-type="golf">Wood</h2>
+        <h2 class="equipment-name" data-type="golf-MainClubs">Wood</h2>
     </li>
-    <li class="equipment-item" data-prod_id="G400">
+    <li class="equipment-item" data-equip_id="G400">
         <img class="equipment-image" src="images/equipments/CallawayRogueIcon919.jpg" alt="Iron Photo">
-        <h2 class="equipment-name" data-type="golf">Iron</h2>
+        <h2 class="equipment-name" data-type="golf-Iron">Iron</h2>
     </li>
-    <li class="equipment-item" data-prod_id="G500">
+    <li class="equipment-item" data-equip_id="G500">
         <img class="equipment-image" src="images/equipments/scotty-cameron-by-titleist-Putter.jpg" alt="Putter Photo">
-        <h2 class="equipment-name" data-type="golf">Putter</h2>
+        <h2 class="equipment-name" data-type="golf-PutterAndBall">Putter</h2>
     </li>
-    <li class="equipment-item" data-prod_id="G600">
+    <li class="equipment-item" data-equip_id="G600">
         <img class="equipment-image" src="images/equipments/GolfBall.jpg" alt="Ball Photo">
-        <h2 class="equipment-name" data-type="golf">Ball</h2>
+        <h2 class="equipment-name" data-type="golf-PutterAndBall">Ball</h2>
     </li>
   </ul>
 </section>
-
-
-
-
 </body>
 </html>
