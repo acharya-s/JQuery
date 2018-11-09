@@ -11,15 +11,43 @@
 		$("#equipments h2.equipment-name[data-type='golf-Iron']").css("background-color", "#12500f");
 		$("#equipments h2.equipment-name[data-type='golf-PutterAndBall']").css("background-color", "#4e0f50");
 		
+		document.querySelector('#cbDrivers').addEventListener('change',function (evt) {
+			updateEquipmentView("mainclubs", evt.target.checked);
+		});
+		
+		document.querySelector('#cbIrons').addEventListener('change', function (evt) {
+			updateEquipmentView("Iron", evt.target.checked);
+		});
+		
+		document.querySelector('#cbPutter').addEventListener('change', function (evt) {
+			updateEquipmentView("PutterAndBall", evt.target.checked);
+		});
 		
 		$(".equipment-item").each(function () {
-                var equipName = encodeURIComponent($(this).children("h2").text());
-                var equipID = encodeURIComponent($(this).data("equip_id"));
+			var equipName = encodeURIComponent($(this).children("h2").text());
+			var equipID = encodeURIComponent($(this).data("equip_id"));
 
-                var link = $("<a href='equipment.html?equipName=" + equipName + "&equipID=" + equipID + "'/>");
-                $(this).children("img").wrap(link);
-            })
-	})
+			var link = $("<a href='equipment.html?equipName=" + equipName + "&equipID=" + equipID + "'/>");
+			$(this).children("img").wrap(link);
+        });
+	});
+	
+	function updateEquipmentView(categoryName, bVisible) {
+			var dataSelectorVal = "";
+			switch (categoryName) {
+			case "mainclubs":
+				dataSelectorVal = "h2[data-type='golf-MainClubs']";
+				break;
+			case "Iron":
+				dataSelectorVal = "h2[data-type='golf-Iron']";
+				break;
+			case "PutterAndBall":
+				dataSelectorVal = "h2[data-type='golf-PutterAndBall']";
+				break;
+			}
+			
+			$(".equipment-item").has(dataSelectorVal).css('display', bVisible ? "" : "none");
+		}
   </script>
 </head>
 <body>
@@ -31,32 +59,45 @@
   <div class="container">
     <h2 class="headline">Golf Equipments</h2>
   </div><!-- container -->
-  <ul class="equipment-list">
-    <li class="equipment-item" data-equip_id="G100">
-        <img class="equipment-image" src="images/equipments/CallawayRogueDriver.jpg" alt="Driver Photo">
-        <h2 class="equipment-name" data-type="golf-MainClubs">Driver</h2>
-    </li>
-    <li class="equipment-item" data-equip_id="G200">
-        <img class="equipment-image" src="images/equipments/CallawayRogueHybrid.jpg" alt="Hybrid Photo">
-        <h2 class="equipment-name" data-type="golf-MainClubs">Hybrid</h2>
-    </li>
-    <li class="equipment-item" data-equip_id="G300">
-        <img class="equipment-image" src="images/equipments/CallawayRogueWood.jpg" alt="Wood Photo">
-        <h2 class="equipment-name" data-type="golf-MainClubs">Wood</h2>
-    </li>
-    <li class="equipment-item" data-equip_id="G400">
-        <img class="equipment-image" src="images/equipments/CallawayRogueIcon919.jpg" alt="Iron Photo">
-        <h2 class="equipment-name" data-type="golf-Iron">Iron</h2>
-    </li>
-    <li class="equipment-item" data-equip_id="G500">
-        <img class="equipment-image" src="images/equipments/scotty-cameron-by-titleist-Putter.jpg" alt="Putter Photo">
-        <h2 class="equipment-name" data-type="golf-PutterAndBall">Putter</h2>
-    </li>
-    <li class="equipment-item" data-equip_id="G600">
-        <img class="equipment-image" src="images/equipments/GolfBall.jpg" alt="Ball Photo">
-        <h2 class="equipment-name" data-type="golf-PutterAndBall">Ball</h2>
-    </li>
-  </ul>
+  
+  <div id="equipmentControls">
+	<form>
+		<div>
+			<span>Show: </span>
+			<input id="cbDrivers" type="checkbox" checked="checked" /><label for="cbDrivers">Drivers</label>
+			<input id="cbIrons" type="checkbox" checked="checked" /><label for="cbIrons">Irons</label>
+			<input id="cbPutter" type="checkbox" checked="checked" /><label for="cbPutter">Putters and Balls</label>
+		<div>
+	</form>
+	</div>
+	<div class="equipments_wrapper">
+	  <ul class="equipment-list">
+		<li class="equipment-item" data-equip_id="G100">
+			<img class="equipment-image" src="images/equipments/CallawayRogueDriver.jpg" alt="Driver Photo">
+			<h2 class="equipment-name" data-type="golf-MainClubs">Driver</h2>
+		</li>
+		<li class="equipment-item" data-equip_id="G200">
+			<img class="equipment-image" src="images/equipments/CallawayRogueHybrid.jpg" alt="Hybrid Photo">
+			<h2 class="equipment-name" data-type="golf-MainClubs">Hybrid</h2>
+		</li>
+		<li class="equipment-item" data-equip_id="G300">
+			<img class="equipment-image" src="images/equipments/CallawayRogueWood.jpg" alt="Wood Photo">
+			<h2 class="equipment-name" data-type="golf-MainClubs">Wood</h2>
+		</li>
+		<li class="equipment-item" data-equip_id="G400">
+			<img class="equipment-image" src="images/equipments/CallawayRogueIcon919.jpg" alt="Iron Photo">
+			<h2 class="equipment-name" data-type="golf-Iron">Iron</h2>
+		</li>
+		<li class="equipment-item" data-equip_id="G500">
+			<img class="equipment-image" src="images/equipments/scotty-cameron-by-titleist-Putter.jpg" alt="Putter Photo">
+			<h2 class="equipment-name" data-type="golf-PutterAndBall">Putter</h2>
+		</li>
+		<li class="equipment-item" data-equip_id="G600">
+			<img class="equipment-image" src="images/equipments/GolfBall.jpg" alt="Ball Photo">
+			<h2 class="equipment-name" data-type="golf-PutterAndBall">Ball</h2>
+		</li>
+	  </ul>
+	</div>
 </section>
 </body>
 </html>

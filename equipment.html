@@ -25,21 +25,22 @@
 				break;
 			equipID += paramStr.charAt(j);
 		}
+		
 		equipName = decodeURIComponent(equipName);
 		equipID = decodeURIComponent(equipID);
 		
 		// set the equipment name in the proper placeholder
 		$("#equipmentName").text(equipName);
 		
-		// retrieve the product information via AJAX
+		// retrieve the equipment information via AJAX
 		$.getJSON("equipment-data.json")
 			.done(function(equipData) {
 				// use the equipID to get this equipment information
 				equipData.equipments.forEach(function(elem) {
 					if (elem.equip_id == equipID) {
-						$("equipmentStock").text(elem.in_stock);
-						$("equipmentPrice").text(elem.retail_price);
-						$("equipmentDesc").text(elem.description);
+						$("#equipmentStock").text(elem.in_stock);
+						$("#equipmentPrice").text(elem.retail_price);
+						$("#equipmentDesc").text(elem.description);
 					}
 				});
 			});
